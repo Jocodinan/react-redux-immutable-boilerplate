@@ -37,4 +37,6 @@ ehthumbs.db
 Thumbs.db
 .tmp/
 node_modules
+build
+package-lock.json
 www/build

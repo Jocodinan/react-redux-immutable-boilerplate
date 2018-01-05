@@ -1,7 +1,6 @@
 import * as Immutable from 'immutable';
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import moment from 'moment';
 
 function exampleStates(state = Immutable.fromJS({
   testState: false,
