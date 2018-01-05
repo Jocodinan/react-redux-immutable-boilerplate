@@ -1,0 +1,80 @@
+@mixin appearance( $val ){
+    -webkit-appearance: $val;
+    -moz-appearance: $val;
+    -ms-appearance: $val;
+    appearance: $val;
+}
+
+@mixin x-placeholder {
+  &::-webkit-input-placeholder {
+    @content // Chrome, Safari, Opera
+  }
+  &::-moz-placeholder {
+    @content // Firefox 19+
+  }
+  &:-ms-input-placeholder {
+    @content // IE 10+
+  }
+}
+
+@mixin respond-to($size) {
+  @media only screen and #{map-get($breakpoints, $size)} {
+    @content;
+  }
+}
+
+@mixin grid-generator($column-count, $gap, $grid-width, $grid-name){
+  .row [class^="#{$grid-name}"] {display: block; float: left; padding-left:(($gap) / 2) * 1px; padding-right:(($gap) / 2) * 1px;}
+  .hide{ display: none !important; }
+
+  $column-width-percentage: ((($grid-width / $column-count) * 100) / $grid-width) * 1%; 
+
+  @for $i from 1 through ($column-count){
+    .#{$grid-name}-#{$i} {width: $column-width-percentage * $i;}
+    .#{$grid-name}-offset-#{$i} {margin-left: $column-width-percentage * $i;}
+    .#{$grid-name}-pull-#{$i} {position:relative; right: (100% - ($column-width-percentage * $i)) * -1;}
+    .#{$grid-name}-push-#{$i} {position:relative; left: (100% - ($column-width-percentage * $i)) * -1;}
+  }
+
+  @for $i from 1 through ($column-count - 1){
+    @each $key, $value in $breakpoints{
+      @include respond-to($key){
+        .#{$key}-#{$i}{width: $column-width-percentage * $i;}
+        .#{$key}-offset-#{$i} {margin-left: $column-width-percentage * $i;}
+        .#{$key}-pull-#{$i}{position:relative; right: (100% - ($column-width-percentage * $i)) * -1;}
+        .#{$key}-push-#{$i}{position:relative; left: (100% - ($column-width-percentage * $i)) * -1;}
+        .hide-on-#{$key}{display: none !important;}
+        .only-on-#{$key}{display: block !important;}
+        .down-on-#{$key}{width: 100%; padding: 0 !important}
+      }
+    }
+  }
+
+}
+
+@mixin triangle($direction, $width, $height, $color) {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    @if $direction == up {
+      border-left: ($width / 2)solid transparent;
+      border-right: ($width / 2)solid transparent;
+      border-bottom: $height solid $color;
+    }
+    @else if $direction == down {
+      border-left: ($width / 2) solid transparent;
+    border-right: ($width / 2) solid transparent;
+    border-top: $height solid $color;
+    }
+    @else if $direction == left {
+      border-top: ($width / 2) solid transparent;
+    border-bottom: ($width / 2) solid transparent;
+    border-right: $height solid $color;
+    }
+    @else if $direction == right {
+      border-top: ($width / 2) solid transparent;
+      border-bottom: ($width / 2) solid transparent;
+      border-left: $height solid $color;
+    }
+}
