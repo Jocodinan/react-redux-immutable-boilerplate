@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
+import * as actions from './actions/index';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Home from "./components/home/home";
 import Page from "./components/page/page";
 
-export default class Router extends Component {
+export class Router extends Component {
   render(){
     return (
       <BrowserRouter>
@@ -17,3 +20,13 @@ export default class Router extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return state;
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Router);
