@@ -5,18 +5,20 @@ import * as actions from './actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Home from "./components/home/home";
-import Page from "./components/page/page";
+import Test from './components/test/test';
+import TestPage from './components/test/test-page';
 
 export class Router extends Component {
   render(){
     return (
-      <BrowserRouter>
-        <div>
-          <Route key="home" exact path='/' render={(props) => { return <Home {...this.props} {...props} /> }} />
-          <Route key="page" exact path='/page' render={(props) => { return <Page {...this.props} {...props} /> }} />
-        </div>
-      </BrowserRouter>
+      <div>
+        <BrowserRouter>
+          <div>
+            <Route key="index" exact path='/' render={(props) => { return <Test {...this.props} {...props} /> }} />
+            <Route key="page" exact path='/page' render={(props) => { return <TestPage {...this.props} {...props} /> }} />
+          </div>
+        </BrowserRouter>
+      </div>
     );
   }
 }

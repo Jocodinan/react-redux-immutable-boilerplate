@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 9" width="15" height="15">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_1);
+      }
+
+      .cls-2 {
+        fill: #276aa6;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="14" height="9"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" class="cls-1">
+    <g id="Down_arrow_small_" data-name="Down arrow small  " transform="translate(-683 -703)">
+      <path id="Path_36" data-name="Path 36" class="cls-2" d="M9.05,11.15,2,4.1,4.1,2,9.05,6.95,14,2l2.1,2.1Z" transform="translate(681 701)"/>
+      <rect id="Rectangle_1467" data-name="Rectangle 1467" class="cls-3" width="15" height="15" transform="translate(683 700)"/>
+    </g>
+  </g>
+</svg>
