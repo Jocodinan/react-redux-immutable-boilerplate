@@ -44,8 +44,7 @@ function exampleActionCreatorStart(){
 function exampleActionCreatorEnd(data){
   return {
     type: 'FETCH_LOGIN_END',
-    userData,
-    code
+    data
   }
 }
 
