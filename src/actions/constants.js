@@ -1,0 +1,1 @@
+export const apiUrl = 'BASE_URL_ENDPOINT'; 
