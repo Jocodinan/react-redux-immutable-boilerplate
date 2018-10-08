@@ -26,6 +26,8 @@
         "eject": "react-scripts eject"
     },
     "devDependencies": {
+        "enzyme": "^3.7.0",
+        "enzyme-adapter-react-16": "^1.6.0",
         "immutable": "^3.8.2",
         "redux-freeze": "^0.1.5",
         "redux-thunk": "^2.2.0",
